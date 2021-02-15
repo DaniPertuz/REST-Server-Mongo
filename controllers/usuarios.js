@@ -1,4 +1,4 @@
-const { response } = require('express');
+const { response, request } = require('express');
 const User = require('../models/user');
 const bcryptjs = require('bcryptjs');
 
@@ -58,14 +58,10 @@ const usuarioPUT = async (req, res = response) => {
     });
 }
 
-const usuarioDELETE = async(req, res = response) => {
-
+const usuarioDELETE = async (req = request, res = response) => {
     const { id } = req.params;
 
-    // Borrado físico
-    // const user = await User.findByIdAndDelete(id);
-
-    const user = await User.findByIdAndUpdate(id, {status: false});
+    const user = await User.findByIdAndUpdate(id, { status: false });
 
     res.json(user);
 }
