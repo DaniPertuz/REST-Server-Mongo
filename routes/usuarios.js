@@ -40,7 +40,7 @@ router.put('/:id', [
 router.delete('/:id', [
     validateJWT,
     isAdminRole,
-    hasRole('ADMIN_ROLE', 'VENTAS_ROLE'),
+    //hasRole('ADMIN_ROLE', 'VENTAS_ROLE'),
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom(validUserID),
     validarCampos
