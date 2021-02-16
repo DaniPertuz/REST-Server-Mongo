@@ -12,7 +12,7 @@ const userSchema = Schema({
     },
     password: {
         type: String,
-        required: [true, 'La contraseña es obligatoria']
+        //required: [true, 'La contraseña es obligatoria']
     },
     img: {
         type: String
@@ -20,6 +20,7 @@ const userSchema = Schema({
     role: {
         type: String,
         required: true,
+        default: 'USER_ROLE',
         enum:['ADMIN_ROLE', 'USER_ROLE']
     },
     status: {
